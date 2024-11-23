@@ -1,0 +1,914 @@
+.leaflet-container {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.429); /* Menambahkan bayangan */
+  height: 100vh; /* Ubah tinggi menjadi 100% dari viewport height */
+}
+
+.logoRaster {
+  display: block; /* Ensures it takes up its own space */
+  margin: 0 auto ; /* Centers the logo horizontally, adds bottom spacing */
+  width: 300px; /* Set a reasonable width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional rounded corners */
+  object-fit: contain; /* Ensures no distortion */
+}
+
+.modal-container2 {
+  position: absolute;
+  top: 562px;
+  right: 15px;
+  background-color: #fbfafa00;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 1000;
+  max-height: 50vh;
+ 
+  width: 350px;
+  height: 150px;
+  display: flex; /* Ensures the content can align nicely */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Centers items horizontally */
+}
+
+
+
+.modal-container {
+  position: absolute;
+  top: 150px;
+  right: 20px;
+  background-color: #076a94d3;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+  max-height: 52vh;
+  overflow-y: scroll;
+  width: 500px;
+}
+/* Container styling */
+.dropdown-container {
+  margin-bottom: 20px;
+  max-width: 300px; /* Menjaga lebar maksimum */
+  
+}
+
+/* Label styling */
+.dropdown-label {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  display: block; /* Memastikan label tampil di atas dropdown */
+  margin-bottom: 10px; /* Jarak antara label dan dropdown */
+  margin-top: 15px;
+}
+
+/* Dropdown styling */
+.dropdown-select {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #cccccc91;
+  border-radius: 10px;
+  background-color: #fbfafad4;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none; /* Menghapus panah dropdown bawaan */
+  outline: none;
+  width: 100%;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* Dropdown focus and hover styling */
+.dropdown-select:focus,
+.dropdown-select:hover {
+  border-color: #007bff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan lebih dalam saat fokus */
+}
+
+
+.legend {
+  padding: 10px;
+  background-color: #fbfafad4;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 250px; /* Increased width for better readability */
+  font-family: Arial, sans-serif;
+  position: absolute; /* Ensure positioning is absolute */
+  right: 570px;
+  top: 150px;
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.legend h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.legend-section {
+  margin-bottom: 20px;
+}
+
+.legend-section h5 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.legend-item {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+}
+
+
+
+
+.centered-btn {
+  display: block;
+  width: 80px;
+  margin-top: 20px ; 
+  margin-right: 20px ; /* Adjust margin as needed */
+  /* Adjust margin as needed */
+  padding: 10px 20px; /* Add padding to the button */
+  background-color: #5480ac; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Add cursor pointer on hover */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 13px; /* Button font size */
+}
+
+.centered-btn:hover {
+  background-color: #0056b3; /* Darker background color on hover */
+}
+
+
+
+
+
+/* .leaflet-control-zoom.leaflet-bar.leaflet-control {
+  display: flex;
+  /* justify-content: flex-start;
+  align-items: flex-end; */
+  /* margin-bottom: 20px; Sesuaikan nilai margin sesuai kebutuhan */
+  /* margin-left: 20px; Sesuaikan nilai margin sesuai kebutuhan */
+
+.leaflet-top.leaflet-left{
+  top: auto;
+  bottom: 50px;
+  left: auto;
+  right: 5px;
+
+}
+
+/*paragraf*/
+p{
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-family: "Inter";
+  font-size: 13px;
+  font-weight: bold; /* Add this line to make the text bold */
+}
+
+
+.nameMenu{
+  margin-left: 0px;
+  padding: -20px;
+}
+
+.pm-textarea.pm-disabled{
+  background-color: transparent;
+  font-family: Arial;
+}
+
+form {
+  position: relative;
+  top: 30%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
+
+.srch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 42.5px); /* Adjusted to fit within the expanded form */
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.194);
+
+}
+
+
+
+
+
+button {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  background: #222424;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+  background: none;
+  border: none;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.194);
+
+}
+
+form:hover,
+form:valid {
+  width: 200px;
+  cursor: pointer;
+  left: calc(50% - 200px); /* Adjusted left position to expand towards the left */
+}
+
+form:hover .srch,
+form:valid .srch {
+  display: flex;
+}
+
+form button,
+form button {
+  background: #ffffff;
+  color: #156983;
+}
+
+.clear-link {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  margin-right: 10px;
+  font-size: 1em;
+  display: none;
+  cursor: pointer;
+  color: #6d6b79;
+  text-decoration: none; /* Remove underline */
+}
+
+.clear-link.visible {
+  display: block;
+
+}
+
+input[type=file] {
+  width: 320px;
+  max-width: 100%;
+  color: #4c4a4a;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #156b61;
+  
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+ 
+  border: none;
+  background: #5390bc;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #243655;
+}
+
+
+.custom-file-upload {
+  display: inline-block;
+  background: #5390bc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+.custom-file-upload:hover {
+  background: #243655;
+}
+
+.custom-file-upload input[type=file] {
+  display: none;
+}
+.checkbox-wrapper-21 .control {
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+}
+.checkbox-wrapper-21 .control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.checkbox-wrapper-21 .control__indicator {
+  position: absolute;
+  top: 16px;
+  left: 16.5px;
+  height: 16px;
+  width: 16px;
+  border: 1px solid rgb(79, 79, 79);
+  background-color: rgba(53, 122, 143, 0.742);
+
+
+  
+}
+
+.choose_file::after {
+  content: ' only (.zip -> include shapefile, .tif, .tiff, .geojson) < 100mb';
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+  margin-left: 10px; /* Adjust spacing as needed */
+  color: #333; /* Adjust color as needed */
+}
+
+.checkbox-wrapper-21 .control:hover input ~ .control__indicator,
+.checkbox-wrapper-21 .control input:focus ~ .control__indicator {
+  background-color: rgba(53, 122, 143, 0.955);
+
+}
+.checkbox-wrapper-21 .control input:checked ~ .control__indicator {
+  background: #2aa1c0;
+}
+.checkbox-wrapper-21 .control:hover input:not([disabled]):checked ~ .control__indicator,
+.checkbox-wrapper-21 .control input:checked:focus ~ .control__indicator {
+  background: #0e647d;
+}
+.checkbox-wrapper-21 .control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.checkbox-wrapper-21 .control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.checkbox-wrapper-21 .control input:checked ~ .control__indicator:after {
+  display: block;
+}
+
+.checkbox-wrapper-21 .control--checkbox .control__indicator:after {
+  left:6px;
+  top:2px;
+  width:3px;
+  height:8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checkbox-wrapper-21 .control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #d2cdcd;
+}
+
+
+
+
+.leaflet-bottom.leaflet-left {
+  display: flex;
+}
+
+.leaflet-pm-toolbar {
+  display: flex;
+}
+
+.leaflet-pm-toolbar > .button-container a{
+  border-right: 1px solid #ccc;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.304);
+}
+
+.leaflet-pm-toolbar.leaflet-pm-edit.leaflet-bar.leaflet-control{
+  margin-left: 10px;
+  margin-bottom: 10px;  
+}
+
+/*opacity slider*/
+.leaflet-bar.leaflet-control{
+  margin-bottom:10px;
+}
+
+
+.leaflet-pm-actions-container{
+  margin-top: -30px;
+  margin-left: -30px;  
+}
+
+.pm-textarea {
+  background-color: rgba(255, 255, 255, 0.295); /* Mengatur warna putih dengan tingkat transparansi 0.5 */
+}
+
+
+.coordinate {
+  position: absolute;
+  bottom: 25px;
+  right: 5px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 3px;  
+  border: 2px solid lightslategray;
+  border-radius: 3px;
+  width: 217px;
+  font-size: 11px;
+  font-family: Arial;
+  text-align: center;
+  /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.312); */
+}
+
+#color-picker,
+#pop-color-picker {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#color-picker::-webkit-color-swatch {
+  border-radius: 2px;
+  border: none;
+}
+
+.noUi-connect {
+  background-color: #0000ff !important;
+}
+
+
+/* .menu-logo-container {
+  flex-grow: 1;
+  text-align: center;
+  display: flex;
+} */
+
+.logo {
+  width: 50px;
+  margin-left: 0px;
+  margin-bottom: 10px;
+}
+
+
+
+.dashboard-menu {
+  position: absolute;
+  display: flex;
+  align-items: center; /* Mengatur strip menu ke tengah secara vertikal */
+  background-color: #08709d;
+  border-radius: 7px;
+  margin-top: 10px;
+  margin-left: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.35);
+  /* border: 2px solid lightslategray; */
+  height: 60px;
+  width: 260px;
+}
+
+
+.menu-logo-container{
+  margin-top: 10px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-bottom: 20px;
+}
+
+.dashboard-toggle {
+  display: none;
+}
+
+.divider-vertical {
+  border: none; /* Remove the default border */
+  border-left: 1px solid hsla(0, 0%, 100%, 0.5); /* Add a vertical border with 50% opacity */
+  height: 65%; /* Set the height to fill the container */
+  margin: 0 4px; /* Adjust margin as needed */
+  margin-left: 4.5px;
+}
+
+
+.dashboard-icon {
+  /* background-color: white; */
+  padding: 3px;
+  /* border: 2px solid lightslategray; */
+  border-radius: 5px;
+  width: 25px;
+  height: 22px;
+  cursor: pointer;
+  position: relative;
+  margin-top: 5px;
+  margin-left: 10px;
+  /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.312); */
+}
+
+
+.strip {
+  width: 80%;
+  height: 2px;
+  background: #ffffff;
+  margin-bottom: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.dashboard-toggle:checked + .dashboard-icon .strip:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px); 
+}
+
+.dashboard-toggle:checked + .dashboard-icon .strip:nth-child(2) {
+  opacity: 0;
+}
+
+.dashboard-toggle:checked + .dashboard-icon .strip:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px); 
+}
+
+.dashboard-links {
+  position: absolute;
+  top: calc( 8vh); 
+  left: calc(0% );
+  right: -200px;
+ 
+  background-color: #076a94d3;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 7px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+}
+
+/* .dashboard-links.open{
+  height: 820px
+} */
+
+
+
+
+.dashboard-toggle:checked + .dashboard-icon ~ .dashboard-links {
+  max-height: 800px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.dashboard-links ul {
+  list-style-type: none;
+  padding-left: 10px;
+  padding-top: -2px;
+  color: rgb(255, 255, 255);
+
+}
+
+.dashboard-links label {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
+
+.testing{
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.testing:hover{
+  background-color: #7bc0e17d;
+  border-radius: 5px;
+  margin-right: 9px
+}
+
+
+
+
+body{
+  background-color: #ececec;
+}
+
+details {
+  position: relative;
+}
+
+summary {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  margin-left: 10px;
+}
+
+summary::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-right: 2px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid currentColor;
+  transform: rotate(270deg);
+  transition: transform 0.2s;
+}
+
+details[open] summary::before {
+  transform: rotate(360deg);
+}
+
+/* .batas{
+  border-top-color: #263A40;
+} */
+
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(72, 128, 142, 0.607);
+
+  /* margin: 0; */
+  color: rgb(58, 77, 101);
+  width: 1.05em;
+  height: 1em;
+  border: 0.1em solid currentColor;
+  border-radius: 100%;
+  transform: translateY(-0.075em);
+  margin-right: 10px;
+  margin-left: 8px;
+  /* place-content: center; */
+}
+
+/* input[type="radio"]::before {
+  content: "";
+  width: 9.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+} */
+
+/* input[type="radio"]:checked::before {
+  transform: scale(1);
+} */
+
+input[type="radio"]:focus {
+  outline: max(1px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.10em);
+}
+
+.checkbox-wrapper-21 {
+  margin-bottom: 5px;
+}
+
+
+.ulshp {
+  margin-left: 20px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+
+.additional-info {
+  padding-left: 23px;
+}
+
+.divider{
+  width: 350px;
+  margin-left: 0px
+}
+
+.upload_file_name{
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-family: "Inter";
+  font-size: 13px;
+}
+
+.choose_file{
+  margin-left: -4px;
+  width: 335px;
+  height: 40px
+}
+
+.labelshp{
+  margin-left: 5px;
+  margin-bottom: 8px;
+  margin-top: -20px;
+  font-family: "Inter";
+  font-size: 12px;
+}
+
+
+/* Print CSS */
+.form-button {
+  margin-right: 10px;
+}
+
+.format {
+  position: absolute;
+  top: 20%;
+ 
+  height: 240px;
+  
+  transform:  translate(420%, -50%);
+ 
+  background: rgba(255, 255, 255, 0.8);
+ 
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.labelname{
+  margin-bottom: 10px;
+}
+
+.labelform{
+ padding-bottom: 50px;
+}
+
+.capture-button {
+  width: 70px;
+  height: 40px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 2px ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 190px 110px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cancel-button {
+  width: 70px;
+  height: 40px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+ 
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 190px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.imagepdf{
+  margin-top: 10px;
+}
+
+/* Wrapper for the checkbox section */
+.checkbox-section {
+  font-family: "Inter", sans-serif;
+}
+
+.checkbox-section h4 {
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.checkbox-section h2 {
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+/* Style for each checkbox control container */
+.checkbox-item {
+  display: flex;
+  align-items: center; /* Aligns items vertically centered */
+  position: relative;
+  padding-left: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: white; /* Spacing between checkboxes */
+}
+
+/* Hide the default checkbox */
+.checkbox-item input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+/* Style for the checkbox indicator */
+.checkbox-item .indicator {
+  position: relative;
+  height: 16px;
+  width: 16px;
+  border: 1px solid rgb(79, 79, 79);
+  background-color: rgba(53, 122, 143, 0.742);
+  transition: background-color 0.3s ease;
+  margin-right: 10px; /* Spacing between the checkbox and label text */
+  display: inline-block; /* Ensures it maintains block-like properties */
+  vertical-align: middle; /* Aligns indicator with label text */
+}
+
+/* Style for the checkbox indicator on hover and focus */
+.checkbox-item:hover input:not([disabled]) ~ .indicator,
+.checkbox-item input:focus ~ .indicator {
+  background-color: rgba(53, 122, 143, 0.955);
+}
+
+/* Style for the checkbox indicator when checked */
+.checkbox-item input:checked ~ .indicator {
+  background: #2aa1c0;
+}
+
+/* Style for the checkbox indicator when checked and focused */
+.checkbox-item:hover input:checked ~ .indicator,
+.checkbox-item input:checked:focus ~ .indicator {
+  background: #0e647d;
+}
+
+/* Style for the checkbox indicator when disabled */
+.checkbox-item input:disabled ~ .indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Style for the checkmark inside the checkbox */
+.checkbox-item .indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.checkbox-item input:checked ~ .indicator:after {
+  display: block;
+}
+
+.checkbox-item .indicator:after {
+  left: 5px; /* Adjusted position for checkmark */
+  top: 1px; /* Adjusted position for checkmark */
+  width: 4px; /* Adjusted width for checkmark */
+  height: 8px; /* Adjusted height for checkmark */
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-item input:disabled ~ .indicator:after {
+  border-color: #d2cdcd;
+}
+
+/* Optional: Additional text styling */
+.file-info::after {
+  content: ' only (.zip -> include shapefile, .tif, .tiff, .geojson) < 100mb';
+  font-size: 12px;
+  margin-left: 10px;
+  color: #ffffff;
+}
+
+
