@@ -37,10 +37,7 @@ from geojson import Feature, FeatureCollection
 
 app = FastAPI()
 
-origins = [
-    "http://localhost",
-    "http://localhost:3000",
-]
+origins = "*"
 
 app.add_middleware(
     CORSMiddleware,
@@ -59,7 +56,7 @@ def get_geojson_from_table(table_name):
     try:
         # Establish connection to PostgreSQL database
         conn = psycopg2.connect(
-        host="localhost",
+        host="10.238.0.3",
         port="5432",
         dbname="nyoba",
         user="postgres",
@@ -96,7 +93,7 @@ def process_geojson(file_path: str, table_name: str):
     try:
         # Connect to PostgreSQL
         conn = psycopg2.connect(
-            host="localhost",
+            host="10.238.0.3",
             port="5432",
             dbname="nyoba",
             user="postgres",
@@ -220,7 +217,7 @@ def preprocess_shapefile(input_shapefile_path, output_shapefile_path, target_sri
 
 def process_shapefile(file_path, table_name, srid=4326):
     conn = psycopg2.connect(
-        host="localhost",
+        host="10.238.0.3",
         port="5432",
         dbname="nyoba",
         user="postgres",
@@ -320,7 +317,7 @@ def preprocess_geotiff(geotiff_path, target_srid, output_path):
 
 def insert_geotiff_to_postgis(geotiff_path, table_name, srid=4326):
     conn = psycopg2.connect(
-        host="localhost",
+        host="10.238.0.3",
         port="5432",
         dbname="nyoba",
         user="postgres",
@@ -430,7 +427,7 @@ async def upload_file(file: UploadFile = File(...)):
 async def get_data(table_name: str):
     try:
         conn = psycopg2.connect(
-        host="localhost",
+        host="10.238.0.3",
         port="5432",
         dbname="nyoba",
         user="postgres",
@@ -494,7 +491,7 @@ cmap = mcolors.ListedColormap(color_palette_rgb)
 async def get_raster(table_name: str):
     try:
         conn = psycopg2.connect(
-            host="localhost",
+            host="10.238.0.3",
             port="5432",
             dbname="nyoba",
             user="postgres",
