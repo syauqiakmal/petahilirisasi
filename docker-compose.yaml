@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: postgis
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 15032003
+      POSTGRES_DB: nyoba
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fastapi
+    environment:
+      - DATABASE_URL=postgresql://postgres:edo@db:5432/tangerangadm
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react-app
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+volumes:
+  postgis_data:
+
+networks:
+  app-network:
+    driver: bridge
