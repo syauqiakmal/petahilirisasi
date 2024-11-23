@@ -325,37 +325,37 @@ export const Map = ({ hideComponents }) => {
   //   fetchData(); // Corrected the function call
   // }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const dataResponse = await fetch(
-          `http://localhost:8000/data/Blok Tambang`
-        );
-        if (!dataResponse.ok) {
-          throw new Error("Failed to fetch shapefile data");
-        }
-        const geojsonData = await dataResponse.json();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const dataResponse = await fetch(
+  //         `http://localhost:8000/data/Blok Tambang`
+  //       );
+  //       if (!dataResponse.ok) {
+  //         throw new Error("Failed to fetch shapefile data");
+  //       }
+  //       const geojsonData = await dataResponse.json();
 
-        const newUploadedFile = {
-          name: "Wilayah Izin Pertambangan",
-          data: geojsonData,
-          checked: true, // Automatically checked after upload
-          selectedColumns: Object.keys(geojsonData.features[0].properties),
-        };
+  //       const newUploadedFile = {
+  //         name: "Wilayah Izin Pertambangan",
+  //         data: geojsonData,
+  //         checked: true, // Automatically checked after upload
+  //         selectedColumns: Object.keys(geojsonData.features[0].properties),
+  //       };
 
-        setUploadedFiles((prevUploadedFiles) => [
-          ...prevUploadedFiles,
-          newUploadedFile,
-        ]);
-        setGeojsonData(geojsonData);
-        setIsNewUpload(true); // Moved inside the try block for correct timing
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
+  //       setUploadedFiles((prevUploadedFiles) => [
+  //         ...prevUploadedFiles,
+  //         newUploadedFile,
+  //       ]);
+  //       setGeojsonData(geojsonData);
+  //       setIsNewUpload(true); // Moved inside the try block for correct timing
+  //     } catch (error) {
+  //       console.error(error.message);
+  //     }
+  //   };
 
-    fetchData(); // Corrected the function call
-  }, []);
+  //   fetchData(); // Corrected the function call
+  // }, []);
 
   // useEffect(() => {
   //   const fetchRaster = async () => {
@@ -660,8 +660,7 @@ export const Map = ({ hideComponents }) => {
   
         // Automatically zoom to the new bounds with closer zoom
         if (mapRef.current) {
-          mapRef.current.fitBounds(updatedBounds, {
-
+          mapRef.current.fitBounds(updatedBounds, { 
             maxZoom: 20, // Set maximum zoom level for closer zoom
           });
         }
@@ -676,7 +675,7 @@ export const Map = ({ hideComponents }) => {
     fetchRaster();
   }, []);
   
-  
+ 
 
   // Get bounds everytime shapefile uploaded
   useEffect(() => {
@@ -886,6 +885,8 @@ export const Map = ({ hideComponents }) => {
         })}            
 
   <PopupComponentRaster/>
+
+  
 
          {showPopup && (
           <PopupComponent
