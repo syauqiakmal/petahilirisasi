@@ -171,7 +171,7 @@ export const Map = ({ hideComponents }) => {
 
     try {
       // Upload file
-      const uploadResponse = await fetch("http://10.2.0.12:8000/upload", {
+      const uploadResponse = await fetch("http://35.209.156.52:8000/upload", {
         method: "POST",
         body: formData,
       });
@@ -183,7 +183,7 @@ export const Map = ({ hideComponents }) => {
       // Handle zipped shapefile
       if (file.name.endsWith(".zip")) {
         const dataResponse = await fetch(
-          `http://10.2.0.12:8000/data/${tableName}`
+          `http://35.209.156.52:8000/data/${tableName}`
         );
         if (!dataResponse.ok) {
           throw new Error("Failed to fetch shapefile data");
@@ -213,7 +213,7 @@ export const Map = ({ hideComponents }) => {
       // Handle raster file
       else if (file.name.endsWith(".tif") || file.name.endsWith(".tiff")) {
         const dataResponse = await fetch(
-          `http://10.2.0.12:8000/raster/${tableName}`
+          `http://35.209.156.52:8000/raster/${tableName}`
         );
         if (!dataResponse.ok) {
           throw new Error("Failed to fetch raster data");
@@ -252,7 +252,7 @@ export const Map = ({ hideComponents }) => {
       // Handle geojson file
       else if (file.name.endsWith(".geojson")) {
         const dataResponse = await fetch(
-          `http://10.2.0.12:8000/geojson/${tableName}`
+          `http://35.209.156.52:8000/geojson/${tableName}`
         );
         if (!dataResponse.ok) {
           throw new Error(
@@ -297,7 +297,7 @@ export const Map = ({ hideComponents }) => {
   //   const fetchData = async () => {
   //     try {
   //       const dataResponse = await fetch(
-  //         `http://10.2.0.12:8000/data/indo_districts`
+  //         `http://35.209.156.52:8000/data/indo_districts`
   //       );
   //       if (!dataResponse.ok) {
   //         throw new Error("Failed to fetch shapefile data");
@@ -329,7 +329,7 @@ export const Map = ({ hideComponents }) => {
   //   const fetchData = async () => {
   //     try {
   //       const dataResponse = await fetch(
-  //         `http://10.2.0.12:8000/data/Blok Tambang`
+  //         `http://35.209.156.52:8000/data/Blok Tambang`
   //       );
   //       if (!dataResponse.ok) {
   //         throw new Error("Failed to fetch shapefile data");
@@ -361,7 +361,7 @@ export const Map = ({ hideComponents }) => {
   //   const fetchRaster = async () => {
   //     try {
   //       const response = await fetch(
-  //         `http://10.2.0.12:8000/raster/image_export_m00_geometrynikel`
+  //         `http://35.209.156.52:8000/raster/image_export_m00_geometrynikel`
   //       );
   //       if (!response.ok) {
   //         throw new Error("Failed to fetch raster data");
@@ -413,7 +413,7 @@ export const Map = ({ hideComponents }) => {
   //   const fetchRaster = async () => {
   //     try {
   //       const response = await fetch(
-  //         `http://10.2.0.12:8000/raster/image_export_m05_geometrynikel`
+  //         `http://35.209.156.52:8000/raster/image_export_m05_geometrynikel`
   //       );
   //       if (!response.ok) {
   //         throw new Error("Failed to fetch raster data");
@@ -466,7 +466,7 @@ export const Map = ({ hideComponents }) => {
   //   const fetchRaster = async () => {
   //     try {
   //       const response = await fetch(
-  //         `http://10.2.0.12:8000/raster/image_export_m10_geometrynikel`
+  //         `http://35.209.156.52:8000/raster/image_export_m10_geometrynikel`
   //       );
   //       if (!response.ok) {
   //         throw new Error("Failed to fetch raster data");
@@ -519,7 +519,7 @@ export const Map = ({ hideComponents }) => {
   //   const fetchRaster = async () => {
   //     try {
   //       const response = await fetch(
-  //         `http://10.2.0.12:8000/raster/image_export_m15_geometrynikel`
+  //         `http://35.209.156.52:8000/raster/image_export_m15_geometrynikel`
   //       );
   //       if (!response.ok) {
   //         throw new Error("Failed to fetch raster data");
@@ -572,7 +572,7 @@ export const Map = ({ hideComponents }) => {
   //   const fetchRaster = async () => {
   //     try {
   //       const response = await fetch(
-  //         `http://10.2.0.12:8000/raster/image_export_m20_geometrynikel`
+  //         `http://35.209.156.52:8000/raster/image_export_m20_geometrynikel`
   //       );
   //       if (!response.ok) {
   //         throw new Error("Failed to fetch raster data");
@@ -625,7 +625,7 @@ export const Map = ({ hideComponents }) => {
     const fetchRaster = async () => {
       try {
         const response = await fetch(
-          `http://10.2.0.12:8000/raster/image_export_mchange_geometrynikel`
+          `http://35.209.156.52:8000/raster/image_export_mchange_geometrynikel`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch raster data");
