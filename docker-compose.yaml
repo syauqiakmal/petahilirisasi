@@ -19,5 +19,5 @@ services:
     environment:
       - GDAL_CONFIG=/usr/bin/gdal-config
     volumes:
-      - ./app:/app  # Optional: map local folder to container folder for local dev
+      - ./Backend:/Backend  # Optional: map local folder to container folder for local dev
     command: ["python", "main.py"]
